@@ -8,6 +8,7 @@ import { errorHandler } from './middleware/errorHandler';
 import { requestLogger } from './middleware/requestLogger';
 import { logger } from '../config/logger';
 import { APIResponse } from '../shared/types';
+import { createRoutes } from './routes';
 
 export const createApp = (): Express => {
   const app = express();
@@ -18,6 +19,9 @@ export const createApp = (): Express => {
 
   // Logging middleware
   app.use(requestLogger);
+
+  // API routes (v1)
+  app.use('/api/v1', createRoutes());
 
   // Health check endpoint
   app.get('/health', (_req, res) => {
