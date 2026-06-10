@@ -626,9 +626,9 @@ jobs:
 ## Additional Resources
 
 - **Full API Documentation**: See [README.md](./README.md)
-- **Manual Testing Guide**: See [MANUAL_VERIFICATION.md](./MANUAL_VERIFICATION.md)
+- **Manual Testing Guide**: See [docs/MANUAL_VERIFICATION.md](./docs/MANUAL_VERIFICATION.md)
 - **Supabase Setup**: See [README.md#supabase-setup](./README.md#supabase-setup)
-- **Project Decisions**: See [DECISIONS.md](./DECISIONS.md)
+- **Project Decisions**: See [docs/DECISIONS.md](./docs/DECISIONS.md)
 
 ---
 

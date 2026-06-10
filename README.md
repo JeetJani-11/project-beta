@@ -82,7 +82,7 @@ Time:        ~3 seconds
 
 ### Manual API Testing
 
-See **[TESTING.md](./TESTING.md)** for comprehensive testing guide including:
+See **[docs/TESTING.md](./docs/TESTING.md)** for comprehensive testing guide including:
 - ✅ Complete curl command examples for all endpoints
 - ✅ Postman/REST Client setup instructions
 - ✅ All test scenarios (auth, cart, checkout, admin, errors)
@@ -106,7 +106,7 @@ curl http://localhost:3000/api/v1/auth/me \
   -H "Authorization: Bearer YOUR_TOKEN"
 ```
 
-For detailed testing instructions with all edge cases, see [MANUAL_VERIFICATION.md](./MANUAL_VERIFICATION.md).
+For detailed testing instructions with all edge cases, see [docs/MANUAL_VERIFICATION.md](./docs/MANUAL_VERIFICATION.md).
 
 ## Supabase Setup (Optional - for PostgreSQL)
 
@@ -168,7 +168,7 @@ npm run test:coverage
 npm test -- --testPathPattern="domain"
 ```
 
-**See [TESTING.md](./TESTING.md) for complete testing guide.**
+**See [docs/TESTING.md](./docs/TESTING.md) for complete testing guide.**
 
 ## Code Quality
 
@@ -461,7 +461,7 @@ tests/
 
 ## Design Decisions
 
-See [DECISIONS.md](./DECISIONS.md) for comprehensive documentation of:
+See [docs/DECISIONS.md](./docs/DECISIONS.md) for comprehensive documentation of:
 
 - Coupon distribution strategy (loyalty-based)
 - Coupon validity model (single-use + 30-day expiry)
