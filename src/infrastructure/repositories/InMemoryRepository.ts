@@ -13,9 +13,17 @@ export class InMemoryRepository {
   private orders: Order[] = [];
   private discountCodes = new Map<string, DiscountCode>();
 
-  // Initialize with sample data
-  constructor() {
+  private static instance: InMemoryRepository;
+
+  private constructor() {
     this.seedData();
+  }
+
+  static getInstance(): InMemoryRepository {
+    if (!InMemoryRepository.instance) {
+      InMemoryRepository.instance = new InMemoryRepository();
+    }
+    return InMemoryRepository.instance;
   }
 
   /**
@@ -169,6 +177,14 @@ export class InMemoryRepository {
     return this.users.get(id);
   }
 
+  getUserByEmail(email: string): User | undefined {
+    return Array.from(this.users.values()).find((user) => user.email === email);
+  }
+
+  getAllUsers(): User[] {
+    return Array.from(this.users.values());
+  }
+
   // ===== Admin Stats =====
   getStats(): {
     totalOrders: number;
@@ -204,4 +220,4 @@ export class InMemoryRepository {
 }
 
 // Export singleton instance
-export const repository = new InMemoryRepository();
+export const repository = InMemoryRepository.getInstance();

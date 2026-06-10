@@ -6,6 +6,8 @@ export interface User {
   id: string;
   name: string;
   email: string;
+  password?: string; // Optional - may not be returned in API responses
+  role?: 'customer' | 'admin'; // User role for authorization
   createdAt: Date;
 }
 

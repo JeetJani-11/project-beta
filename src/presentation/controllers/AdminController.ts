@@ -30,7 +30,7 @@ export class AdminController {
     const { discountPercent, expiryDays } = req.body;
 
     // Use provided discount percent or default to 10%
-    let coupon = DiscountService.generateCouponCode();
+    const coupon = DiscountService.generateCouponCode();
 
     if (discountPercent) {
       if (discountPercent < 0 || discountPercent > 100) {
