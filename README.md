@@ -54,6 +54,60 @@ npm run dev
 
 The API will be available at `http://localhost:3000`
 
+### Verify Installation
+
+```bash
+# Check health
+curl http://localhost:3000/health
+
+# List products
+curl http://localhost:3000/api/v1/products
+```
+
+## Testing
+
+### Run Automated Tests
+```bash
+npm test                # Run all 95 tests
+npm run test:watch     # Watch mode for development
+npm run test:coverage  # Generate coverage report
+```
+
+**All tests should pass:**
+```
+Test Suites: 6 passed, 6 total
+Tests:       95 passed, 95 total
+Time:        ~3 seconds
+```
+
+### Manual API Testing
+
+See **[TESTING.md](./TESTING.md)** for comprehensive testing guide including:
+- ✅ Complete curl command examples for all endpoints
+- ✅ Postman/REST Client setup instructions
+- ✅ All test scenarios (auth, cart, checkout, admin, errors)
+- ✅ Step-by-step testing workflow
+- ✅ Troubleshooting guide
+
+**Quick Test Example:**
+```bash
+# 1. Register user
+curl -X POST http://localhost:3000/api/v1/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","password":"Test123!","name":"Test User"}'
+
+# 2. Login (save the token from response)
+curl -X POST http://localhost:3000/api/v1/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"test@example.com","password":"Test123!"}'
+
+# 3. Test protected endpoint (replace YOUR_TOKEN)
+curl http://localhost:3000/api/v1/auth/me \
+  -H "Authorization: Bearer YOUR_TOKEN"
+```
+
+For detailed testing instructions with all edge cases, see [MANUAL_VERIFICATION.md](./MANUAL_VERIFICATION.md).
+
 ## Supabase Setup (Optional - for PostgreSQL)
 
 The app uses in-memory storage by default. To use Supabase PostgreSQL:
@@ -113,6 +167,8 @@ npm run test:coverage
 # Run specific test suite
 npm test -- --testPathPattern="domain"
 ```
+
+**See [TESTING.md](./TESTING.md) for complete testing guide.**
 
 ## Code Quality
 
