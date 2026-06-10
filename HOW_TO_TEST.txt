@@ -1,0 +1,82 @@
+========================================
+QUICK START - HOW TO TEST THE API
+========================================
+
+1. SETUP
+--------
+npm install
+cp .env.example .env
+# Edit .env: Set JWT_SECRET=your_secret_key
+npm run dev
+
+Server runs on: http://localhost:3000
+
+
+2. RUN AUTOMATED TESTS
+-----------------------
+npm test
+
+Expected: 95 tests pass in ~3 seconds
+
+
+3. MANUAL TESTING (curl)
+-------------------------
+
+A) Check Health:
+curl http://localhost:3000/health
+
+B) Register User:
+curl -X POST http://localhost:3000/api/v1/auth/register -H "Content-Type: application/json" -d "{\"email\":\"test@example.com\",\"password\":\"Test123!\",\"name\":\"Test User\"}"
+
+C) Login (Save the token from response):
+curl -X POST http://localhost:3000/api/v1/auth/login -H "Content-Type: application/json" -d "{\"email\":\"test@example.com\",\"password\":\"Test123!\"}"
+
+D) Get Profile (Replace YOUR_TOKEN):
+curl http://localhost:3000/api/v1/auth/me -H "Authorization: Bearer YOUR_TOKEN"
+
+E) Get Products:
+curl http://localhost:3000/api/v1/products
+
+
+4. COMPLETE DOCUMENTATION
+--------------------------
+- Comprehensive Testing Guide: See TESTING.md
+- All API Endpoints with Examples: See MANUAL_VERIFICATION.md
+- API Documentation: See README.md
+
+
+5. WHAT'S INCLUDED
+------------------
+✅ JWT Authentication (register, login, protected routes)
+✅ Shopping Cart (add, update, remove items)
+✅ Checkout with Discount Codes (10% off every 10th order)
+✅ Admin Panel (stats, coupon management)
+✅ 95 Automated Tests (all passing)
+✅ PostgreSQL Support via Supabase (optional)
+
+
+6. TESTING TOOLS
+----------------
+Option 1: curl (command line) - See TESTING.md
+Option 2: Postman - Import examples from TESTING.md
+Option 3: VS Code REST Client - See TESTING.md
+
+
+7. TROUBLESHOOTING
+------------------
+Issue: "No authorization token provided"
+Fix: Add header: -H "Authorization: Bearer YOUR_TOKEN"
+
+Issue: "Admin access required"
+Fix: Add user ID to .env: ADMIN_USER_IDS=your-user-id
+
+Issue: Tests failing
+Fix: npm install && npm run build && npm test
+
+
+========================================
+For detailed instructions, see:
+- TESTING.md (comprehensive testing guide)
+- MANUAL_VERIFICATION.md (all curl examples)
+- README.md (full documentation)
+========================================
